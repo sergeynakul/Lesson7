@@ -1,6 +1,7 @@
 class Train
   include Produser
   include InstanceCounter
+  include Validation
   attr_accessor :speed
   attr_reader :carriages, :type, :number
   @@trains = {}
@@ -54,13 +55,6 @@ class Train
 
   def self.find(number)
     @@trains[number]
-  end
-
-  def valid?
-    validate!
-    true
-  rescue
-    false
   end
 
   private
