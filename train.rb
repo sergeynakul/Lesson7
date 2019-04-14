@@ -66,7 +66,7 @@ class Train
   private
 
   def validate!
-    raise ArgumentError.new("Поезд не может быть без номера") if number.empty?
-    raise ArgumentError.new("Не верный формат номера поезда") if number !~ NUMBER_FORMAT
+    raise ArgumentError, "Поезд не может быть без номера" if number.empty?
+    raise ArgumentError, "Не верный формат номера поезда" if number !~ NUMBER_FORMAT
   end
 end

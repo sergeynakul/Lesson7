@@ -130,26 +130,22 @@ class Main
 
   def create_passenger_train
     puts "Введите номер поезда"
-    begin
-      train = PassengerTrain.new(gets.chomp)
-      @trains << train
-      puts "Создан поезд № #{train.number}"
-    rescue ArgumentError => e
-      puts e.message
-      create_passenger_train
-    end
+    train = PassengerTrain.new(gets.chomp)
+    @trains << train
+    puts "Создан поезд № #{train.number}"
+  rescue ArgumentError => e
+    puts e.message
+    retry
   end
 
   def create_cargo_train
     puts "Введите номер поезда"
-    begin
-      train = CargoTrain.new(gets.chomp)
-      @trains << train
-      puts "Создан поезд № #{train.number}"
-    rescue ArgumentError => e
-      puts e.message
-      create_passenger_train
-    end
+    train = CargoTrain.new(gets.chomp)
+    @trains << train
+    puts "Создан поезд № #{train.number}"
+  rescue ArgumentError => e
+    puts e.message
+    retry
   end
 
   def create_route
